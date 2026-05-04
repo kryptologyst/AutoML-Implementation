@@ -1,0 +1,19 @@
+experiment:
+  name: "optuna_breast_cancer_classification"
+  algorithm: "optuna"
+  random_state: 42
+
+data:
+  dataset: "breast_cancer"
+  test_size: 0.2
+  preprocessing: "standard"
+
+model:
+  base_model: "random_forest"
+  n_trials: 100
+  cv_folds: 5
+
+evaluation:
+  metrics: ["accuracy", "f1_macro", "auc"]
+  cv_folds: 5
+  save_artifacts: true

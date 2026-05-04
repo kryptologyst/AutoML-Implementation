@@ -1,0 +1,19 @@
+experiment:
+  name: "auto_sklearn_wine_classification"
+  algorithm: "auto_sklearn"
+  random_state: 42
+
+data:
+  dataset: "wine"
+  test_size: 0.2
+  preprocessing: "standard"
+
+model:
+  time_left_for_this_task: 300
+  per_run_time_limit: 30
+  memory_limit: 3072
+
+evaluation:
+  metrics: ["accuracy", "f1_macro", "auc"]
+  cv_folds: 5
+  save_artifacts: true

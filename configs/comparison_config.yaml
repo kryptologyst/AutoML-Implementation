@@ -1,0 +1,34 @@
+experiment:
+  name: "multi_algorithm_comparison"
+  algorithms: ["tpot", "auto_sklearn", "optuna", "random_forest", "svm", "logistic"]
+  random_state: 42
+
+data:
+  dataset: "digits"
+  test_size: 0.2
+  preprocessing: "standard"
+
+model:
+  # TPOT settings
+  tpot:
+    generations: 5
+    population_size: 20
+    cv_folds: 5
+  
+  # Auto-Sklearn settings
+  auto_sklearn:
+    time_left_for_this_task: 180
+    per_run_time_limit: 30
+    memory_limit: 3072
+  
+  # Optuna settings
+  optuna:
+    base_model: "random_forest"
+    n_trials: 50
+    cv_folds: 5
+
+evaluation:
+  metrics: ["accuracy", "f1_macro", "auc"]
+  cv_folds: 5
+  save_artifacts: true
+  create_leaderboard: true
